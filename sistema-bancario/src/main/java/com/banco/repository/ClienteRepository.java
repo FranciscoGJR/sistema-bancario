@@ -3,9 +3,12 @@ package com.banco.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.banco.model.Cliente;
 import com.banco.model.ContaBancaria;
 
+@Repository
 public class ClienteRepository {
 
 	

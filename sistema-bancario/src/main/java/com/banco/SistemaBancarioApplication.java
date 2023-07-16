@@ -1,13 +1,13 @@
-package com.junior.jr;
+package com.banco;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JuniorApplication {
+public class SistemaBancarioApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JuniorApplication.class, args);
+		SpringApplication.run(SistemaBancarioApplication.class, args);
 	}
 
 }

@@ -10,7 +10,7 @@ public class Localizacao {
     String pais;
     String estado;
     String cidade;
-    String rua;
+    String logradouro;
     String numero;
     
 }

@@ -3,26 +3,34 @@ package com.banco.model;
 import java.lang.Integer;
 import java.time.LocalDate;
 
-import com.banco.model.ContaBancaria;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 /**
  * Cliente
  */
+@Entity
 public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer identificador;
     private String nome;
+    
+    @OneToMany
     private ContaBancaria contaBancaria;
     private LocalDate nascimento;
 
 
     /**
      * Construtor que define informações básicas do cliente
-     * @param Integer : Identificador do cliente
      * @param String : Nome do cliente
      * @param ContaBancaria : Conta Bancaria do cliente
      */
-    public Cliente(Integer identificador, String nome, ContaBancaria contaBancaria){
-        this.identificador = identificador;
+    public Cliente(String nome, ContaBancaria contaBancaria){
         this.nome = nome;
         this.contaBancaria = contaBancaria;
     

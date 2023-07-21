@@ -3,12 +3,22 @@ package com.banco.model;
 import java.lang.Integer;
 import java.lang.Long;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 
 /**
  * Conta Bancaria
  */
+@Entity
 public class ContaBancaria{
-    private Integer numero;
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer numero;
     private Long saldo;
     private Integer idTitular;
     private Integer idAgencia;
@@ -16,12 +26,10 @@ public class ContaBancaria{
 
     /**
      * Construtor que define informações básicas da conta bancaria
-     * @param Integer : Identificador da conta bancaria
      * @param Integer : Identificador do cliente titular da conta
      * @param Integer : Identificador da agencia criadora
      */
-    public ContaBancaria(Integer numero, Integer idTitular, Integer idAgencia){
-        this.numero = numero;
+    public ContaBancaria(Integer idTitular, Integer idAgencia){
         saldo = 0L;
         this.idTitular = idTitular;
         this.idAgencia = idAgencia;

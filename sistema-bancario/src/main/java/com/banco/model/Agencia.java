@@ -1,20 +1,34 @@
 package com.banco.model;
 
-import com.banco.model.Localizacao;
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 
 /**
  * Agencia
  */
+@Entity
 public class Agencia {
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer identificador;
+    
+    @ManyToOne
     private Localizacao localizacao;
     private Integer quantClientes;
-
     
-    public Agencia(Integer identificador, Localizacao localizacao, Integer quantClientes) {
-		super();
-		this.identificador = identificador;
+    /**
+     * Construtor que define informações básicas da agencia
+     * @param Localizaca : localizacao da agencia
+     * @param Integer : quantidade de clientes na agencia
+     */
+    public Agencia(Localizacao localizacao, Integer quantClientes) {
 		this.localizacao = localizacao;
 		this.quantClientes = quantClientes;
 	}

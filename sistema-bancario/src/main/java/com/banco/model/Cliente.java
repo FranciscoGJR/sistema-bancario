@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 /**
  * Cliente
@@ -18,10 +18,12 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer identificador;
+
     private String nome;
     
-    @OneToMany
+    @OneToOne
     private ContaBancaria contaBancaria;
+    
     private LocalDate nascimento;
 
 
@@ -63,6 +65,10 @@ public class Cliente {
 
     public ContaBancaria getContaBancaria(){
         return this.contaBancaria;
+    }
+    
+    public void setContaBancaria(ContaBancaria contaBancaria){
+        this.contaBancaria = contaBancaria;
     }
 
 

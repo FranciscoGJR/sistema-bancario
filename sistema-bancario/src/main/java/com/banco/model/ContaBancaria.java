@@ -15,12 +15,14 @@ import jakarta.persistence.Id;
 @Entity
 public class ContaBancaria{
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer numero;
+    
     private Long saldo;
+    
     private Integer idTitular;
+    
     private Integer idAgencia;
 
 

@@ -1,7 +1,5 @@
 package com.banco.model;
 
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +19,7 @@ public class Agencia {
     
     @ManyToOne
     private Localizacao localizacao;
+
     private Integer quantClientes;
     
     /**

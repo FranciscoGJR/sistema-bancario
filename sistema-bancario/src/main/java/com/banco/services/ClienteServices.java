@@ -2,17 +2,23 @@ package com.banco.services;
 
 import com.banco.repository.ClienteRepository;
 import com.banco.model.Cliente;
-import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class ClienteServices {
 
-	ClienteRepository clienteRepository = new ClienteRepository();
+	@Autowired
+	private ClienteRepository clienteRepository;
 	
-	public List<Cliente> listarTodos() {
-		return clienteRepository.listarTodos();
+	/**
+     * Metodo para adicionar cliente no banco
+     * @param Cliente : Cliente que sera armazenado no banco
+     */
+	public Cliente criar(Cliente cliente) {
+		return clienteRepository.save(cliente);
 	}
+	
 }

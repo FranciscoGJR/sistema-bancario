@@ -50,6 +50,13 @@ public class CursoController {
 	}
 	
 	
+	@GetMapping(value = "nome/containing/{busca}")
+	public List<Curso> findCursoByNomeContaining(@PathVariable("busca") String valor){
+		
+		return cursoServices.findCursoByNomeContaining(valor);
+	}
+	
+	
 	@DeleteMapping(value = "/{id}")
 	public void deleteById(@PathVariable("id") Integer id){
 		

@@ -10,7 +10,11 @@ import com.banco.model.Curso;
 @Repository
 public interface CursoRepository extends JpaRepository<Curso, Integer>{
 
-	// Fazer busca utilizando o campo nome
+	// Fazer busca utilizando o campo nome completo
 	List<Curso> findCursoByNome(String nome);
+	
+	
+	// Fazer busca utilizando o campo nome com o LIKE
+	List<Curso> findCursoByNomeContaining(String valor);
 	
 }

@@ -40,9 +40,16 @@ public class CursoServices {
 	    }
 	}
 	
+	
 	public List<Curso> findCursoByNome(String nome){
 		
 		return cursoRepository.findCursoByNome(nome);
+	}
+	
+	
+	public List<Curso> findCursoByNomeContaining(String valor){
+		
+		return cursoRepository.findCursoByNomeContaining(valor);
 	}
 	
 	

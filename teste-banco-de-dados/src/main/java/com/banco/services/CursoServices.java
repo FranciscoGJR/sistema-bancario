@@ -51,6 +51,12 @@ public class CursoServices {
 		
 		return cursoRepository.findCursoByNomeContaining(valor);
 	}
+
+	
+	public List<Curso> findCursoByNomeIgnoreCase(String valor){
+		
+		return cursoRepository.findCursoByNomeIgnoreCase(valor);
+	}
 	
 	
 	public Integer deleteById(Integer id) {

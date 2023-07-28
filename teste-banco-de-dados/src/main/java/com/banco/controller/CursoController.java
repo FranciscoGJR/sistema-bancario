@@ -50,10 +50,17 @@ public class CursoController {
 	}
 	
 	
-	@GetMapping(value = "nome/containing/{busca}")
+	@GetMapping(value = "nomeContaining/{busca}")
 	public List<Curso> findCursoByNomeContaining(@PathVariable("busca") String valor){
 		
 		return cursoServices.findCursoByNomeContaining(valor);
+	}
+
+	
+	@GetMapping(value = "nomeIgnoreCase/{busca}")
+	public List<Curso> findCursoByNomeIgnoreCase(@PathVariable("busca") String valor){
+		
+		return cursoServices.findCursoByNomeIgnoreCase(valor);
 	}
 	
 	

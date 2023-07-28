@@ -16,5 +16,9 @@ public interface CursoRepository extends JpaRepository<Curso, Integer>{
 	
 	// Fazer busca utilizando o campo nome com o LIKE
 	List<Curso> findCursoByNomeContaining(String valor);
+
+	
+	// Fazer busca utilizando o campo nome com o LIKE e ignore case
+	List<Curso> findCursoByNomeIgnoreCase(String valor);
 	
 }

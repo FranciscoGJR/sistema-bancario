@@ -40,6 +40,11 @@ public class CursoServices {
 	    }
 	}
 	
+	public List<Curso> findCursoByNome(String nome){
+		
+		return cursoRepository.findCursoByNome(nome);
+	}
+	
 	
 	public Integer deleteById(Integer id) {
 		

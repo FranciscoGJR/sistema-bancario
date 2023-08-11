@@ -22,6 +22,9 @@ public class Curso {
 	}
 
 	
+	/**
+     * Construtor padrão de um curso
+     */
 	public Curso() {
 	}
 

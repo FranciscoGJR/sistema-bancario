@@ -1,5 +1,7 @@
 package com.banco;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,10 +16,10 @@ import com.banco.repository.ContaBancariaRepository;
 public class SistemaBancarioApplication implements CommandLineRunner{
 
 	@Autowired
-	private ClienteRepository clienteRepositoryInterface;
+	private ClienteRepository clienteRepository;
 	
 	@Autowired
-	private ContaBancariaRepository contaBancariaRepositoryInterface;  
+	private ContaBancariaRepository contaBancariaRepository;  
 	
 	public static void divisoria(String titulo) {
 		System.out.println("\n================== " + titulo + " ==================");
@@ -33,13 +35,19 @@ public class SistemaBancarioApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		Cliente cliente = new Cliente("Alex", null);
 		
-		ContaBancaria conta_1 = new ContaBancaria(cliente.getIdentificador(), 10);
-		cliente.setContaBancaria(conta_1);
+		int numCliente = 10;
+		for(int i = 1; i < 10; i++) {
+			Cliente cliente = new Cliente("Alex" + i + "", null, LocalDate.of(2023, 7, 25));
+			ContaBancaria conta = new ContaBancaria(cliente.getIdentificador(), 10 + i);
+			
+			cliente.setContaBancaria(conta);
+			
+			contaBancariaRepository.save(conta);
+			clienteRepository.save(cliente);
+		}
 		
-		contaBancariaRepositoryInterface.save(conta_1);
-		clienteRepositoryInterface.save(cliente);
+		
 	}
 
 }

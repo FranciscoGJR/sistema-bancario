@@ -1,6 +1,7 @@
 package com.banco.services;
 
 import com.banco.repository.ClienteRepository;
+import com.banco.repository.ContaBancariaRepository;
 import com.banco.model.Cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class ClienteServices {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
+	@Autowired
+	private ContaBancariaRepository contaBancariaRepository;
+	
 	/**
      * Metodo para adicionar cliente no banco
      * @param Cliente : Cliente que sera armazenado no banco
@@ -20,5 +24,12 @@ public class ClienteServices {
 	public Cliente criar(Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
+	
+	
+    public void deletar(Integer id) {
+    	System.out.println("TENTANDO DELETAR");
+    	contaBancariaRepository.deleteById(id);
+    	clienteRepository.deleteById(id);
+    }
 	
 }

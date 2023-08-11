@@ -31,11 +31,12 @@ public class Cliente {
      * Construtor que define informações básicas do cliente
      * @param String : Nome do cliente
      * @param ContaBancaria : Conta Bancaria do cliente
+     * @param LocalDate : nascimento do cliente
      */
-    public Cliente(String nome, ContaBancaria contaBancaria){
+    public Cliente(String nome, ContaBancaria contaBancaria, LocalDate nascimento){
         this.nome = nome;
         this.contaBancaria = contaBancaria;
-    
+        this.nascimento = nascimento;
     }
 
 

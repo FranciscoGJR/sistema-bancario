@@ -3,6 +3,7 @@ package com.banco.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.banco.model.Curso;
@@ -40,4 +41,14 @@ public interface CursoRepository extends JpaRepository<Curso, Integer> {
      * @return Uma lista contendo os cursos cujos nomes correspondem à sequência de caracteres informada, ignorando maiúsculas e minúsculas.
      */
     List<Curso> findCursoByNomeIgnoreCase(String valor);
+    
+    
+    /**
+     * Busca cursos utilizando uma query específica
+     *  
+     */
+    @Query(value = "Select c.nome Crom Curso C")
+    List<Curso> findByQueryNome();
+    
+    
 }

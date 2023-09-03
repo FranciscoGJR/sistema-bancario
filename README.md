@@ -15,8 +15,15 @@ Requisitos
 - Excluir box
 
 ## Arquitetura MVC
-Estrituras:
+Estruturas:
 - Controller
 - Service
 - Repository
 - Model
+
+## Banco de Dados
+##Tabelas:
+- PAGINA
+-+ int id, string titulo, string url
+- BOX
+-+ int id, string titulo, List<Pagina> paginas

@@ -13,3 +13,10 @@ Requisitos
 - Listar determinado grupo de páginas (Box)
 - Excluir página em uma Box
 - Excluir box
+
+## Arquitetura MVC
+Estrituras:
+- Controller
+- Service
+- Repository
+- Model

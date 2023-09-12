@@ -1,5 +1,9 @@
 package com.banco.model;
 
+import java.time.LocalDate;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +22,13 @@ public class Curso {
 
 	@Column(nullable = false)
 	private String area;
+
+	@CreationTimestamp
+	@Column(name = "data_de_criacao")
+	private LocalDate dataDeCriacao;
+
+	@Column(name = "data_de_atualizacao")
+	private LocalDate dataDeAtualizacao;
 
 	/**
 	 * Construtor que define informações básicas de um curso
@@ -62,6 +73,22 @@ public class Curso {
 
 	public void setArea(String area) {
 		this.area = area;
+	}
+
+	public LocalDate getDataDeCriacao() {
+		return dataDeCriacao;
+	}
+
+	public void setDataDeCriacao(LocalDate dataDeCriacao) {
+		this.dataDeCriacao = dataDeCriacao;
+	}
+
+	public LocalDate getDataDeAtualizacao() {
+		return dataDeAtualizacao;
+	}
+
+	public void setDataDeAtualizacao(LocalDate dataDeAtualizacao) {
+		this.dataDeAtualizacao = dataDeAtualizacao;
 	}
 
 }

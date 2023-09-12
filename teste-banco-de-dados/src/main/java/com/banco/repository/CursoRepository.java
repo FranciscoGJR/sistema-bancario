@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.banco.model.Curso;
@@ -54,5 +55,8 @@ public interface CursoRepository extends JpaRepository<Curso, Integer> {
 
 	@Query(value = "Select nome_do_curso From curso_faculdade where area = 'Exatas'", nativeQuery = true)
 	List<Curso> findByQueryPorArea();
+
+	@Query(value = "Select nome_do_curso From curso_faculdade where area = :area", nativeQuery = true)
+	List<Curso> findByQueryPorAreaInformada(@Param("area") String area);
 
 }

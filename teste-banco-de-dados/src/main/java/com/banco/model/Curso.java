@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 @Entity
 public class Curso {
@@ -31,6 +32,13 @@ public class Curso {
 	@UpdateTimestamp
 	@Column(name = "data_de_atualizacao")
 	private LocalDate dataDeAtualizacao;
+	
+	@Transient
+	private Integer valorForaDoBanco;
+	
+	private void aposPersistirDados() {
+		this.nome = this.nome + " POST";
+	}
 
 	/**
 	 * Construtor que define informações básicas de um curso

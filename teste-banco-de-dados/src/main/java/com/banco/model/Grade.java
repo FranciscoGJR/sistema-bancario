@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,13 +16,18 @@ public class Grade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(nullable = false)
 	private String objetivo;
-	
-	public Grade(Integer id, String objetivo) {
-		this.id = id;
+
+	@OneToOne
+	@JoinColumn(name = "aluno_id", referencedColumnName = "id")
+	private Aluno aluno;
+
+	public Grade(String objetivo, Aluno aluno) {
+		super();
 		this.objetivo = objetivo;
+		this.aluno = aluno;
 	}
 
 	public Integer getId() {
@@ -41,8 +48,9 @@ public class Grade {
 
 	@Override
 	public String toString() {
-		return "Grade [id=" + id + ", objetivo=" + objetivo + "]";
+		return "Grade [id=" + id + ", objetivo=" + objetivo + ", aluno=" + aluno + "]";
 	}
-	
-	
+
+
+
 }

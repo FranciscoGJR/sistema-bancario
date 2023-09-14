@@ -1,6 +1,8 @@
 package com.banco.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -10,6 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 
 @Entity
@@ -32,13 +35,16 @@ public class Curso {
 	@UpdateTimestamp
 	@Column(name = "data_de_atualizacao")
 	private LocalDate dataDeAtualizacao;
-	
+
 	@Transient
 	private Integer valorForaDoBanco;
-	
+
 	private void aposPersistirDados() {
 		this.nome = this.nome + " POST";
 	}
+
+	@OneToMany(mappedBy = "curso")
+	private List<Aluno> alunos = new ArrayList<>();
 
 	/**
 	 * Construtor que define informações básicas de um curso

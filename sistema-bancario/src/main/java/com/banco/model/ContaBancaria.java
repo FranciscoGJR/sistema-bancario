@@ -1,13 +1,14 @@
 package com.banco.model;
 
-import java.lang.Integer;
-import java.lang.Long;
+import com.banco.model.Cliente;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class ContaBancaria {
@@ -19,6 +20,10 @@ public class ContaBancaria {
 
 	@Column
 	private Long saldo;
+
+	@ManyToOne()
+	@JoinColumn(name = "id_cliente")
+	private Cliente cliente;
 
 	public ContaBancaria(Integer idTitular, Integer idAgencia) {
 		saldo = 0L;

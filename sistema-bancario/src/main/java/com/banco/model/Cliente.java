@@ -3,87 +3,62 @@ package com.banco.model;
 import java.lang.Integer;
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 
-/**
- * Cliente
- */
 @Entity
 public class Cliente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer identificador;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_cliente")
+	private Integer identificador;
 
-    private String nome;
-    
-    @OneToOne
-    private ContaBancaria contaBancaria;
-    
-    @ManyToOne
-    @JoinColumn(name = "agencia_id")
-    private Agencia agencia;
-    
-    private LocalDate nascimento;
+	@Column(name = "nome")
+	private String nome;
 
+	// private ContaBancaria contaBancaria;
 
-    /**
-     * Construtor que define informações básicas do cliente
-     * @param String : Nome do cliente
-     * @param ContaBancaria : Conta Bancaria do cliente
-     * @param LocalDate : nascimento do cliente
-     */
-    public Cliente(String nome, ContaBancaria contaBancaria, LocalDate nascimento){
-        this.nome = nome;
-        this.contaBancaria = contaBancaria;
-        this.nascimento = nascimento;
-    }
+	// private Agencia agencia;
 
+	@Column(name = "nascimento")
+	private LocalDate nascimento;
 
-    public Integer getIdentificador(){
-        return identificador;
-    }
+	public Cliente(String nome, LocalDate nascimento) {
+		this.nome = nome;
+		this.nascimento = nascimento;
+	}
 
-    public void setIdentificador(Integer identificador){
-        this.identificador = identificador;
-    }
+	public Integer getIdentificador() {
+		return identificador;
+	}
 
-    public String getNome(){
-        return nome;
-    }
+	public void setIdentificador(Integer identificador) {
+		this.identificador = identificador;
+	}
 
-    public void setNome(String nome){
-        this.nome = nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public LocalDate getNascimento(){
-        return nascimento;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNascimento(LocalDate nascimento){
-        this.nascimento = nascimento;
-    }
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
 
-    public ContaBancaria getContaBancaria(){
-        return this.contaBancaria;
-    }
-    
-    public void setContaBancaria(ContaBancaria contaBancaria){
-        this.contaBancaria = contaBancaria;
-    }
-
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
+	}
 
 	@Override
 	public String toString() {
-		return "Cliente [identificador=" + identificador + ", nome=" + nome + ", contaBancaria=" + contaBancaria.toString()
-				+ ", nascimento=" + nascimento + "]";
+		return "Cliente [identificador=" + identificador + ", nome=" + nome + ", nascimento=" + nascimento + "]";
 	}
 
-    
 }

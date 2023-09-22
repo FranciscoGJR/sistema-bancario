@@ -1,7 +1,5 @@
 package com.banco.model;
 
-import com.banco.model.Cliente;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class ContaBancaria {
@@ -25,8 +24,14 @@ public class ContaBancaria {
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
 
-	public ContaBancaria(Integer idTitular, Integer idAgencia) {
-		saldo = 0L;
+	@OneToOne
+	@JoinColumn(name = "id_cartao", referencedColumnName = "id_cartao")
+	private Cartao cartao;
+	
+	
+
+	public ContaBancaria() {
+		this.saldo = 0L;
 	}
 
 	public Integer getNumero() {

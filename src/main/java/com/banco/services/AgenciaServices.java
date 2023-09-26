@@ -1,5 +1,7 @@
 package com.banco.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,5 +14,14 @@ import com.banco.repository.ClienteRepository;
 public class AgenciaServices {
 
 	@Autowired
-	AgenciaRepository agencaiRepository;
+	AgenciaRepository agenciaRepository;
+
+	public Agencia create(Agencia agencia) {
+		return agenciaRepository.save(agencia);
+	}
+
+	public List<Agencia> findAll() {
+		return agenciaRepository.findAll();
+	}
+
 }

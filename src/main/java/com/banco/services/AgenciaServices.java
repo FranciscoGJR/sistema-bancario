@@ -34,4 +34,8 @@ public class AgenciaServices {
 		}
 	}
 
+	public Agencia update(Agencia agencia) {
+		return agenciaRepository.save(agencia);
+	}
+
 }

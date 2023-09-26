@@ -17,10 +17,6 @@ public class ClienteServices {
 	@Autowired
 	private ContaBancariaRepository contaBancariaRepository;
 	
-	/**
-     * Metodo para adicionar cliente no banco
-     * @param Cliente : Cliente que sera armazenado no banco
-     */
 	public Cliente criar(Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}

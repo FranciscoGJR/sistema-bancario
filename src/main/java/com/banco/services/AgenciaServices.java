@@ -37,5 +37,9 @@ public class AgenciaServices {
 	public Agencia update(Agencia agencia) {
 		return agenciaRepository.save(agencia);
 	}
+	
+	public void delete(Integer id) {
+		agenciaRepository.deleteById(id);
+	}
 
 }

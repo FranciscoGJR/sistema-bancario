@@ -17,6 +17,9 @@ public class Agencia {
 	@Column
 	private Integer quantClientes;
 
+	public Agencia() {
+	}
+
 	public Agencia(Integer quantClientes) {
 		this.quantClientes = quantClientes;
 	}

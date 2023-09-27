@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,10 +39,17 @@ public class AgenciaController {
 	}
 
 	@PutMapping(value = "/{id}/{quantClientes}")
-	public Agencia atualizarQuantidadeClientes(@PathVariable("id") Integer id, @PathVariable("quantClientes") Integer quantClientes) throws Exception{
+	public Agencia atualizarQuantidadeClientes(@PathVariable("id") Integer id,
+			@PathVariable("quantClientes") Integer quantClientes) throws Exception {
 		Agencia agencia = agenciaServices.findById(id);
 		agencia.setQuantClientes(quantClientes);
-		
+
 		return agenciaServices.update(agencia);
 	}
+
+	@DeleteMapping(value = "/{id}")
+	public void deletar(@PathVariable("id") Integer id) {
+		agenciaServices.delete(id);
+	}
+	
 }

@@ -32,6 +32,11 @@ public class ClienteController {
 		return clienteServices.findAll();
 	}
 	
+	@GetMapping(value = "/{id}")
+	public Cliente buscarPorID(@PathVariable("id") Integer id) throws Exception {
+		return clienteServices.findById(id);
+	}
+	
 	@DeleteMapping(value = "/{id}")
 	public void deletar(@PathVariable("id") Integer id) {
 		clienteServices.deletar(id);

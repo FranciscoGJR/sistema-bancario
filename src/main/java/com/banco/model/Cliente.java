@@ -1,18 +1,14 @@
 package com.banco.model;
 
-import java.lang.Integer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.hibernate.mapping.Array;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -28,13 +24,16 @@ public class Cliente {
 
 	@OneToMany(mappedBy = "cliente")
 	private List<ContaBancaria> contas = new ArrayList<>();
-	
+
 	// private ContaBancaria contaBancaria;
 
 	// private Agencia agencia;
 
 	@Column(name = "nascimento")
 	private LocalDate nascimento;
+
+	public Cliente() {
+	}
 
 	public Cliente(String nome, LocalDate nascimento) {
 		this.nome = nome;

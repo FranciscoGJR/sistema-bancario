@@ -39,7 +39,7 @@ public class AgenciaController {
 	}
 
 	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Agencia atualizar(@PathVariable("id") Integer id ,@RequestBody Agencia agencia){
+	public Agencia atualizar(@PathVariable("id") Integer id, @RequestBody Agencia agencia) {
 		return agenciaServices.update(agencia, id);
 	}
 

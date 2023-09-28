@@ -14,6 +14,14 @@ public class Cartao {
 	@Column(name = "id_cartao")
 	private Integer identificador;
 
+	public Integer getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(Integer identificador) {
+		this.identificador = identificador;
+	}
+
 	@Override
 	public String toString() {
 		return "Cartao [identificador=" + identificador + "]";

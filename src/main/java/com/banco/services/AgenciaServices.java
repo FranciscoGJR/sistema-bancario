@@ -30,7 +30,7 @@ public class AgenciaServices {
 		if (agenciaOptional.isPresent()) {
 			return agenciaOptional.get();
 		} else {
-			throw new Exception("Curso não encontrado para o ID: " + id);
+			throw new Exception("Agencia não encontrado para o ID: " + id);
 		}
 	}
 

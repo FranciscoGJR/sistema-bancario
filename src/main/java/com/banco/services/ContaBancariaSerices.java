@@ -30,7 +30,7 @@ public class ContaBancariaSerices {
 		if (contaBancariaOptional.isPresent()) {
 			return contaBancariaOptional.get();
 		} else {
-			throw new Exception("Curso não encontrado para o ID: " + id);
+			throw new Exception("Cartao não encontrado para o ID: " + id);
 		}
 	}
 	

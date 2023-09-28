@@ -39,6 +39,11 @@ public class ClienteServices {
 
 	}
 
+	public Cliente update(Cliente cliente, Integer id) {
+		cliente.setIdentificador(id);
+		return clienteRepository.save(cliente);
+	}
+	
 	public void deletar(Integer id) {
 		System.out.println("TENTANDO DELETAR");
 		contaBancariaRepository.deleteById(id);

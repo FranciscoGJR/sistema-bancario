@@ -25,7 +25,7 @@ public class ClienteController {
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Cliente criar(@RequestBody Cliente cliente) {
-		return clienteServices.criar(cliente);
+		return clienteServices.create(cliente);
 	}
 
 	@GetMapping

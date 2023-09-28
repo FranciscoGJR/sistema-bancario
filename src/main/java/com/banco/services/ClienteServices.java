@@ -19,7 +19,7 @@ public class ClienteServices {
 	@Autowired
 	private ContaBancariaRepository contaBancariaRepository;
 
-	public Cliente criar(Cliente cliente) {
+	public Cliente create(Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 

@@ -34,7 +34,8 @@ public class AgenciaServices {
 		}
 	}
 
-	public Agencia update(Agencia agencia) {
+	public Agencia update(Agencia agencia, Integer id) {
+		agencia.setIdentificador(id);
 		return agenciaRepository.save(agencia);
 	}
 	

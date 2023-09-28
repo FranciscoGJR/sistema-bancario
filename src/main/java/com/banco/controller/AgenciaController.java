@@ -38,18 +38,14 @@ public class AgenciaController {
 		return agenciaServices.findById(id);
 	}
 
-	@PutMapping(value = "/{id}/{quantClientes}")
-	public Agencia atualizarQuantidadeClientes(@PathVariable("id") Integer id,
-			@PathVariable("quantClientes") Integer quantClientes) throws Exception {
-		Agencia agencia = agenciaServices.findById(id);
-		agencia.setQuantClientes(quantClientes);
-
-		return agenciaServices.update(agencia);
+	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Agencia atualizar(@PathVariable("id") Integer id ,@RequestBody Agencia agencia){
+		return agenciaServices.update(agencia, id);
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public void deletar(@PathVariable("id") Integer id) {
 		agenciaServices.delete(id);
 	}
-	
+
 }

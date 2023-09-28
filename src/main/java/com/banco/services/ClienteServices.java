@@ -1,13 +1,14 @@
 package com.banco.services;
 
-import com.banco.repository.ClienteRepository;
-import com.banco.repository.ContaBancariaRepository;
-import com.banco.model.Cliente;
-
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.banco.model.Cliente;
+import com.banco.repository.ClienteRepository;
+import com.banco.repository.ContaBancariaRepository;
 
 @Service
 public class ClienteServices {
@@ -24,6 +25,18 @@ public class ClienteServices {
 
 	public List<Cliente> findAll() {
 		return clienteRepository.findAll();
+	}
+
+	public Cliente findById(Integer id) throws Exception {
+
+		Optional<Cliente> clienteOptional = clienteRepository.findById(id);
+
+		if (clienteOptional.isPresent()) {
+			return clienteOptional.get();
+		} else {
+			throw new Exception("Curso não encontrado para o ID: " + id);
+		}
+
 	}
 
 	public void deletar(Integer id) {

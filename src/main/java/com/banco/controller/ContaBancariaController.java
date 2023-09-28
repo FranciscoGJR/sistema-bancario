@@ -32,6 +32,11 @@ public class ContaBancariaController {
 		return contaBancariaSerices.findAll();
 	}
 
+	@GetMapping(value = "/{id}")
+	public ContaBancaria buscarPorId(@PathVariable("id") Integer id) throws Exception {
+		return contaBancariaSerices.findById(id);
+	}
+
 	@DeleteMapping(value = "/{id}")
 	public void deletar(@PathVariable("id") Integer id) {
 		contaBancariaSerices.deletar(id);

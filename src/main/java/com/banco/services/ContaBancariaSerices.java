@@ -33,6 +33,11 @@ public class ContaBancariaSerices {
 			throw new Exception("Curso não encontrado para o ID: " + id);
 		}
 	}
+	
+	public ContaBancaria update(ContaBancaria contaBancaria, Integer id) {
+		contaBancaria.setNumero(id);
+		return contaBancariaRepository.save(contaBancaria);
+	}
 
 	public void deletar(Integer id) {
 		contaBancariaRepository.deleteById(id);

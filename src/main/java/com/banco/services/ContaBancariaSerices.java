@@ -1,5 +1,7 @@
 package com.banco.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class ContaBancariaSerices {
 	
 	public ContaBancaria create(ContaBancaria contaBancaria) {
 		return contaBancariaRepository.save(contaBancaria);
+	}
+	
+	public List<ContaBancaria> findAll(){
+		return contaBancariaRepository.findAll();
 	}
 	
 	public void deletar(Integer id) {

@@ -14,6 +14,12 @@ public class Cartao {
 	@Column(name = "id_cartao")
 	private Integer identificador;
 
+	@Column(name = "cvv_cartao")
+	private Integer cvv;
+
+	public Cartao() {
+	}
+
 	public Integer getIdentificador() {
 		return identificador;
 	}

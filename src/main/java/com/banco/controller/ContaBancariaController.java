@@ -38,6 +38,11 @@ public class ContaBancariaController {
 		return contaBancariaSerices.findById(id);
 	}
 
+	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ContaBancaria atualizar(@RequestBody ContaBancaria contaBancaria, @PathVariable("id") Integer id) {
+		return contaBancariaSerices.update(contaBancaria, id);
+	}
+
 	@DeleteMapping(value = "/{id}")
 	public void deletar(@PathVariable("id") Integer id) {
 		contaBancariaSerices.deletar(id);

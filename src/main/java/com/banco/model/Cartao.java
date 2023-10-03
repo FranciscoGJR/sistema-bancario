@@ -7,18 +7,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Agencia {
+public class Cartao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_Cliente")
+	@Column(name = "id_cartao")
 	private Integer identificador;
 
-	@Column
-	private Integer quantClientes;
+	@Column(name = "cvv_cartao")
+	private Integer cvv;
 
-	public Agencia(Integer quantClientes) {
-		this.quantClientes = quantClientes;
+	public Cartao() {
 	}
 
 	public Integer getIdentificador() {
@@ -29,17 +28,9 @@ public class Agencia {
 		this.identificador = identificador;
 	}
 
-	public Integer getQuantClientes() {
-		return quantClientes;
-	}
-
-	public void setQuantClientes(Integer quantClientes) {
-		this.quantClientes = quantClientes;
-	}
-
 	@Override
 	public String toString() {
-		return "Agencia [identificador=" + identificador + ", quantClientes=" + quantClientes + "]";
+		return "Cartao [identificador=" + identificador + "]";
 	}
 
 }

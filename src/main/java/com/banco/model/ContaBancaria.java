@@ -27,11 +27,8 @@ public class ContaBancaria {
 	@OneToOne
 	@JoinColumn(name = "id_cartao", referencedColumnName = "id_cartao")
 	private Cartao cartao;
-	
-	
 
 	public ContaBancaria() {
-		this.saldo = 0L;
 	}
 
 	public Integer getNumero() {

@@ -24,7 +24,6 @@ public class ContaBancariaSerices {
 	}
 
 	public ContaBancaria findById(Integer id) throws Exception {
-
 		Optional<ContaBancaria> contaBancariaOptional = contaBancariaRepository.findById(id);
 
 		if (contaBancariaOptional.isPresent()) {
@@ -33,7 +32,7 @@ public class ContaBancariaSerices {
 			throw new Exception("Cartao não encontrado para o ID: " + id);
 		}
 	}
-	
+
 	public ContaBancaria update(ContaBancaria contaBancaria, Integer id) {
 		contaBancaria.setNumero(id);
 		return contaBancariaRepository.save(contaBancaria);

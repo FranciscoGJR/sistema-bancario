@@ -25,10 +25,6 @@ public class Cliente {
 	@OneToMany(mappedBy = "cliente")
 	private List<ContaBancaria> contas = new ArrayList<>();
 
-	// private ContaBancaria contaBancaria;
-
-	// private Agencia agencia;
-
 	@Column(name = "nascimento")
 	private LocalDate nascimento;
 

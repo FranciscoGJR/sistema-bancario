@@ -28,13 +28,12 @@ public class ClienteServices {
 	}
 
 	public Cliente findById(Integer id) throws Exception {
-
 		Optional<Cliente> clienteOptional = clienteRepository.findById(id);
 
 		if (clienteOptional.isPresent()) {
 			return clienteOptional.get();
 		} else {
-			throw new Exception("Curso não encontrado para o ID: " + id);
+			throw new Exception("Cliente não encontrado para o ID: " + id);
 		}
 
 	}
@@ -43,7 +42,7 @@ public class ClienteServices {
 		cliente.setIdentificador(id);
 		return clienteRepository.save(cliente);
 	}
-	
+
 	public void deletar(Integer id) {
 		System.out.println("TENTANDO DELETAR");
 		contaBancariaRepository.deleteById(id);

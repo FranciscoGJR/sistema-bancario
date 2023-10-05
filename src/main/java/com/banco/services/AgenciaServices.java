@@ -24,7 +24,6 @@ public class AgenciaServices {
 	}
 
 	public Agencia findById(Integer id) throws Exception {
-
 		Optional<Agencia> agenciaOptional = agenciaRepository.findById(id);
 
 		if (agenciaOptional.isPresent()) {
@@ -38,7 +37,7 @@ public class AgenciaServices {
 		agencia.setIdentificador(id);
 		return agenciaRepository.save(agencia);
 	}
-	
+
 	public void delete(Integer id) {
 		agenciaRepository.deleteById(id);
 	}
